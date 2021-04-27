@@ -11,13 +11,13 @@ $ cat users.csv
 "10001","marty.byrde","Marty","Byrde","marty.byrde@peoplefluent.com","en","Red","Blue","red","7"
 "10002","wendy.byrde","Wendy","Byrde","wendy.byrde@peoplefluent.com","en","Red","","blue",""
 
-$ ./activate-ipaas-users.main.kts
+$ ./parse-csv.main.kts
 Missing input CSV file as first argument
 
-$ ./activate-ipaas-users.main.kts does-not-exist.csv
+$ ./parse-csv.main.kts does-not-exist.csv
 CSV file "does-not-exist.csv" does not exist
 
-$ ./activate-ipaas-users.main.kts users.csv
+$ ./parse-csv.main.kts users.csv
 [employeeId, userName, firstName, lastName, email, language, group1, group2, favourite.colour, lucky.number]
 [10001, marty.byrde, Marty, Byrde, marty.byrde@peoplefluent.com, en, Red, Blue, red, 7]
 [10002, wendy.byrde, Wendy, Byrde, wendy.byrde@peoplefluent.com, en, Red, , blue, ]
