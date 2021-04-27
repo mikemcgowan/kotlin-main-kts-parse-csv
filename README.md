@@ -2,6 +2,8 @@
 
 Known to work with Kotlin 1.4.31 (but should work from Kotlin [1.3.70](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#scripting)).
 
+Uses [kotlin-csv](https://github.com/doyaaaaaken/kotlin-csv).
+
 ```
 $ sdk current kotlin
 Using kotlin version 1.4.31
