@@ -22,7 +22,7 @@ if (!Files.exists(Paths.get(inputFile))) {
 }
 
 csvReader().open(inputFile) {
-    readAllAsSequence().forEach { processRow(it) }
+    readAllWithHeaderAsSequence().forEach { processRow(it) }
 }
 
 fun die(reason: String) {
@@ -33,6 +33,10 @@ fun die(reason: String) {
 /**
  * TODO implement this function
  */
-fun processRow(row: List<String>) {
-    println(row)
+fun processRow(row: Map<String, String>) {
+    val username = row["userName"]
+    val firstName = row["firstName"]
+    val lastName = row["lastName"]
+    val email = row["email"]
+    println("""Username is "$username", first name is "$firstName", last name is "$lastName", email is "$email"""")
 }

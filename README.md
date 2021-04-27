@@ -20,7 +20,6 @@ $ ./parse-csv.main.kts does-not-exist.csv
 CSV file "does-not-exist.csv" does not exist
 
 $ ./parse-csv.main.kts users.csv
-[employeeId, userName, firstName, lastName, email, language, group1, group2, favourite.colour, lucky.number]
-[10001, marty.byrde, Marty, Byrde, marty.byrde@peoplefluent.com, en, Red, Blue, red, 7]
-[10002, wendy.byrde, Wendy, Byrde, wendy.byrde@peoplefluent.com, en, Red, , blue, ]
+Username is "marty.byrde", first name is "Marty", last name is "Byrde", email is "marty.byrde@peoplefluent.com"
+Username is "wendy.byrde", first name is "Wendy", last name is "Byrde", email is "wendy.byrde@peoplefluent.com"
 ```
