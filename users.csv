@@ -1,0 +1,3 @@
+"employeeId","userName","firstName","lastName","email","language","group1","group2","favourite.colour","lucky.number"
+"10001","marty.byrde","Marty","Byrde","marty.byrde@peoplefluent.com","en","Red","Blue","red","7"
+"10002","wendy.byrde","Wendy","Byrde","wendy.byrde@peoplefluent.com","en","Red","","blue",""
