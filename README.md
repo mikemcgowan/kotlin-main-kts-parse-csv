@@ -10,7 +10,17 @@ Known to work with Kotlin 1.4.31 (but should work from Kotlin [1.3.70](https://b
 
 ## Usage
 
-After creating an `.env` file with env vars `URL`, `CLIENT_ID`, `CLIENT_SECRET`:
+Create a `.env` file containing env vars `URL`, `CLIENT_ID`, `CLIENT_SECRET`:
+
+```
+$ cat .env
+
+URL=https://gateway-staging.pf-labs.net:443
+CLIENT_ID=<cut>
+CLIENT_SECRET=<cut>
+```
+
+Then run:
 
 ```
 $ ./parse-csv.main.kts users.csv
