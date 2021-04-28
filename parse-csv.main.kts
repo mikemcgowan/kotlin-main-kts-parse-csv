@@ -15,6 +15,7 @@ import com.github.kittinunf.fuel.core.Headers
 import com.github.kittinunf.fuel.core.extensions.jsonBody
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.fuel.json.responseJson
+import com.github.kittinunf.result.Result
 import org.json.JSONObject
 import java.nio.file.Files
 import java.nio.file.Paths
@@ -46,10 +47,10 @@ val clientSecret = getenv("CLIENT_SECRET")
 val credentialsUrl = "$url/auth/oauth/v2/token?grant_type=client_credentials&client_id=$clientId&client_secret=$clientSecret"
 
 val (_, _, result) = credentialsUrl.httpPost().responseJson()
-if (result.component2() != null) {
+if (result is Result.Failure) {
     die("Couldn't obtain an iPaaS API access token")
 }
-val accessToken = result.component1()?.obj()?.get("access_token").toString()
+val accessToken = result.get().obj().get("access_token").toString()
 
 csvReader().open(inputFile) {
     readAllWithHeaderAsSequence().forEach { processRow(it) }
@@ -65,7 +66,7 @@ fun processRow(row: Map<String, String>) {
         .jsonBody(body.toString())
         .also { println(it) }
         .response()
-    if (result.component2() != null) {
+    if (result is Result.Failure) {
         println("Update to user $id failed!")
     }
 }
