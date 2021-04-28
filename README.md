@@ -1,6 +1,6 @@
 # Parse CSV
 
-Known to work with Kotlin 1.4.31 (but should work from Kotlin [1.3.70](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#scripting)).
+Requires Kotlin 1.4.10. Known to work on Kotlin 1.4.10 and Kotlin 1.4.31.
 
 ## Top level dependencies
 
