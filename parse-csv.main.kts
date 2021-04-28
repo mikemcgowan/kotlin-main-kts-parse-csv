@@ -42,15 +42,19 @@ if (!Files.exists(Paths.get(inputFile))) {
 }
 
 val url = getenv("URL")
-val clientId = getenv("CLIENT_ID")
-val clientSecret = getenv("CLIENT_SECRET")
-val credentialsUrl = "$url/auth/oauth/v2/token?grant_type=client_credentials&client_id=$clientId&client_secret=$clientSecret"
 
-val (_, _, result) = credentialsUrl.httpPost().responseJson()
-if (result is Result.Failure) {
-    die("Couldn't obtain an iPaaS API access token")
+fun acquireAccessToken(): String {
+    val clientId = getenv("CLIENT_ID")
+    val clientSecret = getenv("CLIENT_SECRET")
+    val credentialsUrl = "$url/auth/oauth/v2/token?grant_type=client_credentials&client_id=$clientId&client_secret=$clientSecret"
+    val (_, _, result) = credentialsUrl.httpPost().responseJson()
+    if (result is Result.Failure) {
+        die("Couldn't obtain an iPaaS API access token")
+    }
+    return result.get().obj().get("access_token").toString()
 }
-val accessToken = result.get().obj().get("access_token").toString()
+
+val accessToken = acquireAccessToken()
 
 csvReader().open(inputFile) {
     readAllWithHeaderAsSequence().forEach { processRow(it) }
