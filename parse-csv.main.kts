@@ -1,6 +1,6 @@
 #!/usr/bin/env kotlin
 
-// known to work with Kotlin 1.4.31
+// Known to work on Kotlin 1.4.10 and Kotlin 1.4.31.
 
 @file:DependsOn("org.slf4j:slf4j-simple:1.7.30")
 @file:DependsOn("org.slf4j:slf4j-api:1.7.30")
